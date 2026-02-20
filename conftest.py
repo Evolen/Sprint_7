@@ -11,21 +11,8 @@ from data import *
     
 @pytest.fixture
 def create_random_courier(scope="function"):
-    courier_body = generate_random_courier_dict()
-    response = CreateCourierMethods.create_courier(courier_data = courier_body)
-    return response
-
-@pytest.fixture
-def create_courier_identical(scope="function"):
-    courier_body = CREATER_COURIER
-    response = CreateCourierMethods.create_courier(courier_data = courier_body)
-    return response
-
-@pytest.fixture
-def create_courier_again(scope="function"):
-    courier_body = CREATER_COURIER
-    response = CreateCourierMethods.create_courier(courier_data = courier_body)
-    return response   
+    courier_body = generate_random_courier_dict()    
+    return courier_body
 
 @pytest.fixture
 def create_courier_without_login(scope="function"):

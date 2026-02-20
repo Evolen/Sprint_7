@@ -8,14 +8,16 @@ class TestCreateCourier:
 
     @allure.title("Создание курьера")
     @allure.description("Проверка создания курьера")
-    def test_create_courier(self, create_random_courier):
-        response = create_random_courier       
+    def test_create_courier(self, create_random_courier):    
+        response = CreateCourierMethods.create_courier(courier_data = create_random_courier)
         assert response.status_code == 201, f"Expected status code 201, but got {response.status_code}"
-        assert response.json()["ok"] == True
+        assert response.json()["ok"] == True          
+        
 
     @allure.description("Проверка создания курьера, который уже был создан")
-    def test_create_courier_again(self, create_courier_identical, create_courier_again):
-        response = create_courier_again       
+    def test_create_courier_again(self, create_random_courier):
+        response = CreateCourierMethods.create_courier(courier_data = create_random_courier)
+        response = CreateCourierMethods.create_courier(courier_data = create_random_courier)
         assert response.status_code == 409, f"Expected status code 409, but got {response.status_code}"
         assert response.json()["message"] == "Этот логин уже используется. Попробуйте другой."
 
