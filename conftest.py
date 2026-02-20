@@ -16,9 +16,8 @@ def create_random_courier(scope="function"):
 
 @pytest.fixture
 def create_courier_without_login(scope="function"):
-    courier_body = CREATER_COURIER_WITHOUT_LOGIN 
-    response = CreateCourierMethods.create_courier(courier_data = courier_body)
-    return response   
+    courier_body = CREATER_COURIER_WITHOUT_LOGIN     
+    return courier_body   
 
 @pytest.fixture
 def create_courier_login_again(scope="function"):

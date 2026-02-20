@@ -4,6 +4,7 @@ CREATER_COURIER = {
     "firstName": "Elena"
     }
 CREATER_COURIER_WITHOUT_LOGIN = {
+    "login": "",
     "password": "1234",
     "firstName": "Elena"
     }
